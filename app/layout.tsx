@@ -1,22 +1,40 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import React from 'react'
-const inter = Inter({ subsets: ['latin'] })
+import "./globals.css";
+import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Inter, Space_Grotesk } from "next/font/google";
+import React from "react";
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-spaceGrotesk",
+});
 
 export const metadata: Metadata = {
-  title: 'DevOverflow',
-  description: 'Stack Overflow Clone',
-}
+  title: "DevOverflow",
+  description:
+    "DevOverflow - A platform for knowledge exchange and collaboration within a specific niche or industry, where users can ask questions, provide answers, and build their expertise. Join a vibrant community of experts today.",
+  icons: {
+    icon: "/assets/images/site-logo.svg",
+  },
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ClerkProvider>
+        <body className={`${inter.className} background-light850_dark100`}>
+          {children}
+        </body>
+      </ClerkProvider>
     </html>
-  )
+  );
 }
