@@ -19,7 +19,7 @@ module.exports = {
       colors: {
         primary: {
           500: "#05a8e3",
-          100: "##a2e4fc",
+          100: "#a2e4fc",
         },
         dark: {
           100: "#000000",
@@ -29,10 +29,10 @@ module.exports = {
           500: "#101012",
         },
         light: {
-          900: "#fafafa",
-          800: "#f0f0f0c",
-          850: "#e3e3e3",
-          700: "#dbdbdb",
+          900: "#FFFFFF",
+          800: "#F4F6F8",
+          850: "#FDFDFD",
+          700: "#DCE3F1",
           500: "#7B8EC8",
           400: "#858EAD",
         },

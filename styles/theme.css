@@ -191,10 +191,6 @@
     @apply shadow-light-100 dark:shadow-none;
   }
 
-  .primary-gradient {
-    background: linear-gradient(129deg, #05a8e3 0%, #59cdf7 100%);
-  }
-
   .dark-gradient {
     background: linear-gradient(
       232deg,

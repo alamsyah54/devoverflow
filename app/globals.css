@@ -22,7 +22,7 @@ body {
   }
 
   .card-wrapper {
-    @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100;
+    @apply border-gray-100 bg-gradient-to-bl from-light-850 from-15% via-light-850 to-gray-100 border-2 dark:border-[#171c23]/60 dark:from-[#171c23] dark:from-15% dark:via-[#171c23] via-30% dark:to-[#0c0d0f] to-90%  shadow-light-100 dark:shadow-dark-100;
   }
 
   .btn {
@@ -42,14 +42,14 @@ body {
   }
 
   .primary-gradient {
-    background: linear-gradient(129deg, #05a8e3 0%, #59cdf7 100%);
+    @apply bg-gradient-to-bl from-10% from-primary-500 via-sky-400 via-30%  to-primary-500 to-90%;
   }
 
   .dark-gradient {
     background: linear-gradient(
       232deg,
       rgba(23, 28, 35, 0.41) 0%,
-      rgba(19, 22, 28, 0.7) 100%
+      rgba(52, 59, 74, 1) 100%
     );
   }
 
@@ -63,8 +63,7 @@ body {
 }
 
 .active-theme {
-  filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg)
-    brightness(104%) contrast(106%) !important;
+  @apply text-primary-500;
 }
 
 .light-gradient {
