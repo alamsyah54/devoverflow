@@ -12,7 +12,7 @@ export interface IQuestion extends Document {
   createdAt: Date;
 }
 
-const QuestionsSchema = new Schema({
+const QuestionSchema = new Schema({
   title: { type: String, required: true },
   content: { type: String, required: true },
   tags: [{ type: Schema.Types.ObjectId, ref: "Tag" }],
@@ -24,6 +24,6 @@ const QuestionsSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-const Question = models.Question || model("Question", QuestionsSchema);
+const Question = models.Question || model("Question", QuestionSchema);
 
 export default Question;

@@ -38,6 +38,7 @@ export async function getAllTags(params: GetAllTagsParams) {
 
     const tags = await Tag.find({});
 
+    console.log("Success SHOW Tags");
     return { tags };
   } catch (error) {
     console.log("====================================");

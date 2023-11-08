@@ -6,12 +6,13 @@ import {
   CreateUserParams,
   DeleteUserParams,
   GetAllUsersParams,
+  GetUserByIdParams,
   UpdateUserParams,
 } from "./shared.types";
 import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
 
-export async function getUserById(params: any) {
+export async function getUserById(params: GetUserByIdParams) {
   try {
     connectToDatabase();
 
@@ -19,6 +20,7 @@ export async function getUserById(params: any) {
 
     const user = await User.findOne({ clerkId: userId });
 
+    console.log("Success SHOW Users");
     return user;
   } catch (error) {
     console.log("====================================");
@@ -33,6 +35,7 @@ export async function createUser(userData: CreateUserParams) {
     connectToDatabase();
 
     const newUser = await User.create(userData);
+    console.log("Success CREATE Users");
     return newUser;
   } catch (error) {
     console.log("====================================");
@@ -50,6 +53,7 @@ export async function updateUser(params: UpdateUserParams) {
 
     await User.findOneAndUpdate({ clerkId }, updateData, { new: true });
 
+    console.log("Success UPDATE Users");
     revalidatePath(path);
   } catch (error) {
     console.log("====================================");
@@ -86,6 +90,7 @@ export async function deleteUser(params: DeleteUserParams) {
 
     const deletedUser = await User.findByIdAndDelete(user._id);
 
+    console.log("Success DELETE Users");
     return deletedUser;
   } catch (error) {
     console.log("====================================");
@@ -103,6 +108,7 @@ export async function getAllUsers(params: GetAllUsersParams) {
 
     const users = await User.find({}).sort({ createdAt: -1 });
 
+    console.log("Success SHOW Users");
     return { users };
   } catch (error) {
     console.log("====================================");

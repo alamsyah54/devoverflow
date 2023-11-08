@@ -59,6 +59,9 @@ const Question = ({ mongoUserId }: Props) => {
 
       // navigate to home page
       router.push("/");
+      console.log("====================================");
+      console.log(Question);
+      console.log("====================================");
     } catch (error) {
     } finally {
       setIsSubmitting(false);

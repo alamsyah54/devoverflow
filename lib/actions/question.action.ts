@@ -4,7 +4,7 @@ import Question from "@/database/question.model";
 import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
 import User from "@/database/user.model";
-import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
+import { GetQuestionsParams } from "./shared.types";
 import { revalidatePath } from "next/cache";
 
 export async function getQuestions(params: GetQuestionsParams) {
@@ -15,6 +15,8 @@ export async function getQuestions(params: GetQuestionsParams) {
       .populate({ path: "tags", model: Tag })
       .populate({ path: "author", model: User })
       .sort({ createdAt: -1 });
+
+    console.log("Success SHOW Question");
     return { questions };
   } catch (error) {
     console.log("====================================");
@@ -24,7 +26,7 @@ export async function getQuestions(params: GetQuestionsParams) {
   }
 }
 
-export async function createQuestion(params: CreateQuestionParams) {
+export async function createQuestion(params: any) {
   try {
     connectToDatabase();
     const { title, content, tags, author, path } = params;
@@ -33,7 +35,6 @@ export async function createQuestion(params: CreateQuestionParams) {
     const question = await Question.create({
       title,
       content,
-      tags,
       author,
     });
 
@@ -50,13 +51,13 @@ export async function createQuestion(params: CreateQuestionParams) {
     }
 
     await Question.findByIdAndUpdate(question._id, {
-      $push: { tag: { $each: tagDocuments } },
+      $push: { tags: { $each: tagDocuments } },
     });
+    console.log("Success CREATE Question");
 
     // Create an interaction record for the user's ask_question action
 
     // Increment authors reputation by +5 for creating a question
-
     revalidatePath(path);
   } catch (error) {}
 }
