@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "run": "npx prettier . --write && git push",
+    "push": "npx prettier . --write && git push",
     "lint": "next lint"
   },
   "dependencies": {

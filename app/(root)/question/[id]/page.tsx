@@ -1,8 +1,7 @@
 import React from "react";
 
-const page = ({ searchParams }) => {
-  console.log(searchParams);
-  return <div>page</div>;
+const page = () => {
+  return <div>Dynamic Question Page</div>;
 };
 
 export default page;
