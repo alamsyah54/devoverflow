@@ -21,7 +21,7 @@ const Navbar = () => {
         </p>
       </Link>
       <GlobalSearch />
-      <div className="flex-between gap-5">
+      <span className="flex-between gap-5">
         <Theme />
         <SignedIn>
           <UserButton
@@ -37,7 +37,7 @@ const Navbar = () => {
           />
         </SignedIn>
         <MobileNav />
-      </div>
+      </span>
     </nav>
   );
 };

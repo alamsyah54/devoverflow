@@ -12,6 +12,21 @@ import {
 import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
 
+export async function createUser(userData: CreateUserParams) {
+  try {
+    connectToDatabase();
+
+    const newUser = await User.create(userData);
+    console.log("Success CREATE Users");
+    return newUser;
+  } catch (error) {
+    console.log("====================================");
+    console.log(error);
+    console.log("====================================");
+    throw error;
+  }
+}
+
 export async function getUserById(params: GetUserByIdParams) {
   try {
     connectToDatabase();
@@ -22,21 +37,6 @@ export async function getUserById(params: GetUserByIdParams) {
 
     console.log("Success SHOW Users");
     return user;
-  } catch (error) {
-    console.log("====================================");
-    console.log(error);
-    console.log("====================================");
-    throw error;
-  }
-}
-
-export async function createUser(userData: CreateUserParams) {
-  try {
-    connectToDatabase();
-
-    const newUser = await User.create(userData);
-    console.log("Success CREATE Users");
-    return newUser;
   } catch (error) {
     console.log("====================================");
     console.log(error);
