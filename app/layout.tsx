@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import "./globals.css";
+import "../styles/prism.css";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter, Space_Grotesk } from "next/font/google";
@@ -40,7 +41,9 @@ export default function RootLayout({
           },
         }}
       >
-        <body className={`${inter.className} ${spaceGrotesk.className}`}>
+        <body
+          className={`${inter.className} ${spaceGrotesk.className} text-black dark:text-white`}
+        >
           <ThemeProvider>{children}</ThemeProvider>
         </body>
       </ClerkProvider>
