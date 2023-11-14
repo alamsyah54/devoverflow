@@ -26,6 +26,7 @@ pre[class*="language-"] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  @apply p-5;
 }
 
 pre[class*="language-"]::-moz-selection,
@@ -42,8 +43,7 @@ code[class*="language-"] ::selection {
 }
 
 pre[class*="language-"] {
-  @apply border-gray-100 bg-gradient-to-bl from-light-850 from-15% via-light-850 to-gray-100 border-2 dark:border-[#171c23]/60 dark:from-[#171c23] dark:from-15% dark:via-[#171c23] via-30% dark:to-[#0c0d0f] to-90%  shadow-light-100 dark:shadow-dark-100;
-  padding: 1.5em 1em;
+  @apply bg-gradient-to-bl border-2 border-[#171c23]/60 from-[#171c23] from-15% via-[#171c23] via-30% to-[#0c0d0f] to-90%;
   margin: 1em 0;
   overflow: auto;
 }
@@ -86,7 +86,7 @@ pre[class*="language-"] {
 
 .token.string,
 .token.char {
-  color: #49c6ec;
+  @apply text-emerald-500;
 }
 
 .token.operator,
@@ -94,14 +94,14 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #ec8e01;
+  @apply text-purple-600;
   background: transparent;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #0fe468;
+  @apply text-sky-400;
 }
 
 .token.function,

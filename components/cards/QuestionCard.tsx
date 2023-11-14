@@ -66,7 +66,7 @@ const QuestionCard = ({
         ))}
       </div>
       <div className="flex-between mt-6 w-full flex-wrap gap-3">
-        <div className="max-md:hidden max-sm:hidden ">
+        <div className="items-center max-md:hidden max-sm:hidden">
           <Metric
             imgUrl={author.picture}
             alt="User"

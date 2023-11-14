@@ -162,3 +162,14 @@ code {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+.codeparser {
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-800 rounded-full;
+  }
+  ::-webkit-scrollbar-track {
+    @apply rounded-full bg-gray-300;
+  }
+}
